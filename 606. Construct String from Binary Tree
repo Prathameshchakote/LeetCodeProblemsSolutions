@@ -1,0 +1,27 @@
+// Problem Link : https://leetcode.com/problems/construct-string-from-binary-tree/
+
+class Solution {
+    func tree2str(_ root: TreeNode?) -> String {
+        guard let root = root else {
+            return ""
+        }
+        
+        var str = ""
+        str.append(String(root.val))
+        
+        if (root.right == nil && root.left == nil) {
+            return str
+        }
+        
+       
+        
+        if (root.right == nil && root.left != nil) {
+            str = str + "(" + tree2str(root.left) + ")"
+        } else {
+            str = str + "(" + tree2str(root.left) + ")" + "(" + tree2str(root.right) + ")"
+        }
+        
+        
+        return str
+    }
+}
